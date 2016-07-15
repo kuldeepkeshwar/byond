@@ -1,1 +1,12 @@
-voirtj
+<div ng-controller="ContactController">
+    <div ng-repeat="c in contacts">
+        <input type="checkbox"
+        ng-model="string"
+        [name="string"]
+        [ng-true-value="expression"]
+        [ng-false-value="expression"]
+        [ng-change="string"]>
+        <span>{{c.displayName}}</span>
+        <span>{{c.phoneNumbers[0].value}}</span>
+    </div>
+</div>

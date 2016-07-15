@@ -7,7 +7,8 @@ app.config(function($stateProvider, $urlRouterProvider) {
     $stateProvider
         .state('home', {
             url: '/home',
-            template: '<p>home dferjfo</p>'
+            controller:'MainController',
+            templateUrl: 'app/views/main.html'
         })
         .state('about', {
             url: '/about',
@@ -20,7 +21,4 @@ app.config(function($stateProvider, $urlRouterProvider) {
         });
 });
 
-app.controller('MyController', ['$scope', function ($scope) {
-    $scope.greetMe = 'World';
- }]);
 
