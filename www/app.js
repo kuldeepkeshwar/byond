@@ -2,6 +2,7 @@
  * Created by kuldeepkeshwar on 15/07/16.
  */
 var app=angular.module('myApp',['ui.router']);
+<<<<<<< HEAD
 
 
 app.config(function($stateProvider, $urlRouterProvider,pushNotificationProvider) {
