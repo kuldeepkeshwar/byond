@@ -1,4 +1,40 @@
-<div>
-    <h1>qwerty</h1>
-<button ng-click="page.next(1)"></button>
+<div class="header">
+    <div class="row">
+        <div class="col-xs-9">
+            <h4 class="text-left margin-bottom-xs">WITH ???</h4>
+            <h5>Family, Friends, Colleagues</h5>
+        </div>
+        <div class="col-xs-3 text-right" ng-click="page.next(1)">
+            <a href="" class="display-inline-block margin-top-xs"><i class="material-icons">arrow_forward</i></a>
+        </div>
+    </div>
+</div>
+<!-- Pagers -->
+<ul class="sliderPager text-center list-inline margin-top-xs">
+    <li class="slider-pager"><a href=""></a></li>
+    <li class="slider-pager"><a href=""></a></li>
+    <li class="slider-pager"><a href=""></a></li>
+</ul>
+
+<div class="container content">
+    <div class="row form-group">
+        <div class="col-md-6 col-md-offset-3">
+            <div class="plan-cards">
+                <ul class="list-block">
+                    <li ng-repeat="data in whatData" class="margin-bottom-s">
+                        <label class="nb-radio margin-bottom-s">
+                            <input type="radio" name="svs" ng-click="optionSelected($index)" >
+                            <span class="nb-radio__bg"> </span>
+                            <span class="nb-radio__icon rippler rippler-default"></span>
+                            <span class="nb-radio__text"> {{data.what}}</span>
+                        </label>
+                        <ul ng-show="data.status" class="tag-area list-in-line">
+                            <li ng-repeat="moment in data.when"class="tag tag-default" ng-click="updateMoment($index,data,moment)" ng-class="{'checkmark':isMarked(moment,data)}">{{moment}}</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
 </div>

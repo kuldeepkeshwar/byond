@@ -10,31 +10,16 @@
      */
 
     angular.module('myApp').factory('AuthFactory',
-        function($http,$q, httpHelper) {
+        function($http,$q, httpHelper,base_url) {
 
 
 
             function getUser(phNumber) {
                 var def = $q.defer();
-                var url = 'http://customerprofile.iwanto.in/customerplatform/api/v2/customers/search';
-                var data={
-                    "conditionalOperator": "or",
-                    "criterias": [
-                        {
-                            "fieldName": "primaryPhoneNumber",
-                            "term": phNumber,
-                            "typeOfSearch": "exactMatch"
-                        }
-                    ]
-                };
-                httpHelper._$http({
-                    method: 'post', url: url,data:data, def: def
-                }, function (resp) {
-                    def.resolve(resp);
-                   alert(resp);
-                });
-                return def.promise;
+                var url = base_url+'/v1/customer?phoneNumber='+phNumber;
+                return httpHelper.getCall(url);
             }
+
 
             // Public API here
             return {

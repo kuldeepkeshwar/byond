@@ -50,8 +50,9 @@ var app = {
         console.log('Received Event: ' + id);
     }
 };
+
 app.initialize();
 
-angular.element(document).ready(function() {
+ angular.element(document).ready(function() {
     angular.bootstrap(document, ['myApp']);
-});
+ });

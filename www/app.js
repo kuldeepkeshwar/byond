@@ -2,8 +2,19 @@
  * Created by kuldeepkeshwar on 15/07/16.
  */
 var app=angular.module('myApp',['ui.router']);
-angular.module('myApp').config(function($stateProvider, $urlRouterProvider) {
+
+
+app.config(function($stateProvider, $urlRouterProvider,pushNotificationProvider) {
     $urlRouterProvider.otherwise('/login');
+    pushNotificationProvider.setPushNotificationConfig({
+        android: {
+            senderID: "251069557742",
+            forceShow : true,
+            vibrate : true,
+            sound : true
+        }
+    });
+
     $stateProvider
         .state('home', {
             url: '/home',
@@ -20,5 +31,13 @@ angular.module('myApp').config(function($stateProvider, $urlRouterProvider) {
             controller:'loginCtrl'
         });
 });
+
+app.run(
+    function ($state,pushNotification) {
+        pushNotification.getPushNotification(function (data) {
+            $state.go('about')
+        })
+    });
+
 
 
