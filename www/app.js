@@ -32,5 +32,12 @@ app.config(function($stateProvider, $urlRouterProvider,pushNotificationProvider)
         });
 });
 
+app.run(
+    function ($state,pushNotification) {
+        pushNotification.getPushNotification(function (data) {
+            $state.go('about')
+        })
+    });
+
 
 

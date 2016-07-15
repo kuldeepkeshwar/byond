@@ -5,7 +5,7 @@
 
 'use strict';
 
-app.provider('pushNotification', function pushNotificationProvider($location) {
+app.provider('pushNotification', function pushNotificationProvider() {
     var pushNotificationConfig = {};
     var push;
 
@@ -25,9 +25,16 @@ app.provider('pushNotification', function pushNotificationProvider($location) {
         });
     };
 
-    push.on('notification', function(data) {
-        cb(data);
-    });
 
-    
+    this.$get =['$state',function pushNotification($state){
+        return {
+            getPushNotification : function (cb) {
+                push.on('notification', function(data) {
+                    cb(data);
+                });
+            }
+        }
+    }]
+
+
 });
