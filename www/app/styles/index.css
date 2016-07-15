@@ -102,13 +102,11 @@ input.signin:focus{
 }
 
 /*Header*/
-.header{
-    padding: 18px;
+.header {
+    padding: 12px;
     background-color: #FF5252;
     color: #fff;
 }
-
-/*Radio Buttons*/
 
 /*Plan Cards*/
 .plan-cards{
@@ -273,7 +271,7 @@ input.signin:focus{
 /*List Inline*/
 .list-in-line {
     margin: 0;
-    padding-left: 30px;
+    padding-left: 0px;
     list-style: none;
 }
 
@@ -305,11 +303,19 @@ input.signin:focus{
     margin-bottom: 6px;
 }
 
+.margin-top-xs{
+    margin-top: 6px;
+}
+
 .padding-bottom-xs{
     padding-bottom: 6px;
 }
 
 .margin-bottom-s{
+    margin-bottom: 12px;
+}
+
+.margin-top-s{
     margin-bottom: 12px;
 }
 
@@ -323,6 +329,14 @@ input.signin:focus{
 
 .margin-bottom-zero{
     margin-bottom: 0;
+}
+
+.txt-brand-secondary{
+    color: #2dbaaa;
+}
+
+.font-weight-600{
+    font-weight: 600;
 }
 
 /*Buttons Tags*/
@@ -348,6 +362,7 @@ input.signin:focus{
     margin-right: 6px;
 }
 
+/*Checkbox*/
 .nb-checkbox {
     display: inline-block;
     position: relative;
@@ -410,6 +425,85 @@ input.signin:focus{
     margin-bottom: 0;
 }
 .checkbox-group-heading {
+    font-weight: 400;
+    font-size: 15px;
+    margin-bottom: 12px;
+}
+
+
+/* Radio Buttons*/
+.nb-radio {
+    display: block;
+    position: relative;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+.nb-radio input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+    outline: 0;
+    border: none;
+    position: absolute;
+}
+.nb-radio__bg {
+    display: block;
+    width: 18px;
+    height: 18px;
+    border: 2px solid #757575;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 12px;
+    vertical-align: top;
+    float: left;
+}
+.nb-radio__text {
+    vertical-align: top;
+    padding-top: 1px;
+    font-weight: 300;
+}
+.nb-radio__icon {
+    position: absolute;
+    left: 5px;
+    top: 5px;
+    opacity: 0;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    background-color: #212121;
+}
+.nb-radio input:checked + .nb-radio__bg {
+    border-color: #212121;
+}
+.nb-radio input:checked + .nb-radio__bg + .nb-radio__icon {
+    opacity: 1;
+}
+.nb-radio input[disabled] + .nb-radio__bg {
+    border-color: #e0e0e0;
+}
+.nb-radio input[disabled] ~ .nb-radio__icon {
+    background-color: #e0e0e0;
+}
+.nb-radio input[disabled] ~ .nb-radio__text {
+    color: #e0e0e0;
+}
+
+.radio-group--inline .nb-radio {
+    display: inline-block;
+    margin-right: 60px;
+}
+.radio-group--inline .nb-radio:last-child {
+    margin-right: 0;
+}
+.radio-group--block .nb-radio {
+    display: block;
+    margin-bottom: 24px;
+}
+.radio-group--block .nb-radio:last-child {
+    margin-bottom: 0;
+}
+.radio-group-heading {
     font-weight: 400;
     font-size: 15px;
     margin-bottom: 12px;

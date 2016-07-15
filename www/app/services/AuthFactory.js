@@ -10,15 +10,16 @@
      */
 
     angular.module('myApp').factory('AuthFactory',
-        function($http,$q, httpHelper) {
+        function($http,$q, httpHelper,base_url) {
 
 
 
             function getUser(phNumber) {
                 var def = $q.defer();
-                var url = 'http://172.16.80.177:8080/v1/customer?phoneNumber='+phNumber;
+                var url = base_url+'/v1/customer?phoneNumber='+phNumber;
                 return httpHelper.getCall(url);
             }
+
 
             // Public API here
             return {
