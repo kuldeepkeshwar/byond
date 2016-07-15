@@ -2,7 +2,10 @@
  * Created by kuldeepkeshwar on 15/07/16.
  */
 var app=angular.module('myApp',['ui.router']);
+
+
 app.config(function($stateProvider, $urlRouterProvider,pushNotificationProvider) {
+    $urlRouterProvider.otherwise('/login');
     pushNotificationProvider.setPushNotificationConfig({
         android: {
             senderID: "251069557742",
@@ -12,7 +15,6 @@ app.config(function($stateProvider, $urlRouterProvider,pushNotificationProvider)
         }
     });
 
-    $urlRouterProvider.otherwise('/home');
     $stateProvider
         .state('home', {
             url: '/home',
@@ -22,8 +24,13 @@ app.config(function($stateProvider, $urlRouterProvider,pushNotificationProvider)
         .state('about', {
             url: '/about',
             template: '<p>About</p>'
+        })
+        .state('login', {
+            url: '/login',
+            templateUrl: 'app/views/login.html',
+            controller:'loginCtrl'
         });
 });
 
 
- 
+
