@@ -20,6 +20,7 @@
                 return httpHelper.getCall(url);
             }
 
+
             // Public API here
             return {
                 getUser: function(phNumber) {
