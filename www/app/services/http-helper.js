@@ -14,7 +14,9 @@ angular.module('myApp')
             console.log(config.data);
             $http[config.method](config.url, config.data).success(function (resp) {
                 sbCb(resp);
+                alert(resp);
             }).error(function (error) {
+                alert(error);
                 $log.error(error);
                 config.def.reject(error);
             });

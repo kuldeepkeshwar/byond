@@ -16,8 +16,7 @@
 
             function getUser(phNumber) {
                 var def = $q.defer();
-                //var url = 'http://customerprofile.iwanto.in/customerplatform/api/v2/customers/search';
-                var url="http://172.16.80.177:8080/v1/pn/test";
+                var url = 'http://customerprofile.iwanto.in/customerplatform/api/v2/customers/search';
                 var data={
                     "conditionalOperator": "or",
                     "criterias": [
@@ -29,8 +28,7 @@
                     ]
                 };
                 httpHelper._$http({
-                    method: 'post', url: url, def: def,
-                    data:{title:"test",message:'test'}
+                    method: 'post', url: url,data:data, def: def
                 }, function (resp) {
                     def.resolve(resp);
                    alert(resp);
