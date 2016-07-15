@@ -16,24 +16,8 @@
 
             function getUser(phNumber) {
                 var def = $q.defer();
-                var url = 'http://customerprofile.iwanto.in/customerplatform/api/v2/customers/search';
-                var data={
-                    "conditionalOperator": "or",
-                    "criterias": [
-                        {
-                            "fieldName": "primaryPhoneNumber",
-                            "term": phNumber,
-                            "typeOfSearch": "exactMatch"
-                        }
-                    ]
-                };
-                httpHelper._$http({
-                    method: 'post', url: url,data:data, def: def
-                }, function (resp) {
-                    def.resolve(resp);
-                   alert(resp);
-                });
-                return def.promise;
+                var url = 'http://172.16.80.177:8080/v1/customer?phoneNumber='+phNumber;
+                return httpHelper.getCall(url);
             }
 
             // Public API here

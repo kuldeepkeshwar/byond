@@ -5,11 +5,9 @@ angular.module('myApp')
        alert($scope.phoneNumber,$scope.password);
 
             AuthFactory.getUser($scope.phoneNumber).then(function(resp){
-                alert('eflkerof');
                 $state.go('home');
 
             },function(error){
-                console.log(error);
 
                 $state.go('home');
             });
