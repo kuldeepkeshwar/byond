@@ -32,7 +32,7 @@
         <meta name="format-detection" content="telephone=no">
         <meta name="msapplication-tap-highlight" content="no">
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
-        <link rel="stylesheet" type="text/css" href="css/index.css">
+        <link rel="stylesheet" type="text/css" href="app/styles/index.css">
         <title>Hello World</title>
     </head>
     <body>
@@ -45,19 +45,16 @@
             <div ng-controller="MyController">
                 Hello {{greetMe}}!
             </div>
-            <div ng-controller="ContactController">
-                <div ng-repeat="c in contacts">
-                    <div>{{c.displayName}}</div>
-                </div>
-            </div>
+            <div ui-view></div>
+           <div ng-include="'app/views/contact.html'"></div>
         </div>
     </body>
     <script type="text/javascript" src="cordova.js"></script>
-    <script type="text/javascript" src="js/vendor/angular.js"></script>
-    <script type="text/javascript" src="js/vendor/ui.router.js"></script>
+    <script type="text/javascript" src="vendor/angular.js"></script>
+    <script type="text/javascript" src="vendor/ui.router.js"></script>
 
 
-    <script type="text/javascript" src="js/app.js"></script>
-    <script type="text/javascript" src="js/contacts/contact.controller.js"></script>
-    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+    <script type="text/javascript" src="app/controllers/contact.js"></script>
+    <script type="text/javascript" src="index.js"></script>
 </html>
