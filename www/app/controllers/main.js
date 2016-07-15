@@ -16,8 +16,8 @@ function getCashBack(n){
         return cashbackOptions[0];
     }
 }
-angular.module('myApp').controller('MainController', ['$scope','contacts','$state','deals','WhatService', 
-    function ($scope,contactService,$state,dealService,WhatService) {
+angular.module('myApp').controller('MainController', ['$scope','contacts','$state','deals','WhatService', '$timeout',
+    function ($scope,contactService,$state,dealService,WhatService,$timeout) {
     $scope.page={
         slides:[{active:true},{active:false},{active:false}]
     };
