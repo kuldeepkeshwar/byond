@@ -27,8 +27,6 @@ angular.module('myApp').controller('MainController', ['$scope','contacts','$stat
     }
 
     //deals page
-    $scope.what='booze';
-    $scope.when='morning';
     $scope.deals=[];
     $scope.page.next=function (index) {
         if(index==3){
@@ -59,10 +57,10 @@ angular.module('myApp').controller('MainController', ['$scope','contacts','$stat
     $scope.selectedIndex='';
     $scope.what='';
     $scope.when='';
-    
     // contactService.readContact(function (contacts) {
-    //      $scope.contacts=contacts;
-    //      $scope.$digest();
+    //     $timeout(function () {
+    //         $scope.contacts=contacts;
+    //     },0);
     //  });
     (function getWhatData(){
        WhatService.getWhatAndWhen().then(function(resp){

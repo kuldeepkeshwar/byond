@@ -54,5 +54,5 @@ var app = {
 app.initialize();
 
  angular.element(document).ready(function() {
-    angular.bootstrap(document, ['myApp']);
+     angular.bootstrap(document, ['myApp']);
  });
