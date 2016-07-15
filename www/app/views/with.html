@@ -1,9 +1,11 @@
 <div>WITH</div>
 <div>
-    <input type="text" ng-model="minfriends" ng-keyup="declareMinFriend()"/>
+    <input type="text" ng-model="contactPage.minfriends" ng-keyup="declareMinFriend()"/> <div>{{cashback}}% cashback</div>
     <div ng-repeat="c in contacts">
-        <input type="checkbox" ng-disabled="allDisabled" ng-model="c.checked" ng-click="selectFriends(c)">
-        <span>{{c.displayName}}</span>
-        <span>{{c.phoneNumbers[0].value}}</span>
+        <div ng-click="selectFriends(c)">
+            <input type="checkbox" ng-disabled="allDisabled" ng-checked="c.checked" >
+            <span>{{c.displayName}}</span>
+            <span>{{c.phoneNumbers[0].value}}</span>
+        </div>
     </div>
 </div>

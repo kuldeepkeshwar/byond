@@ -17,11 +17,13 @@ function getCashBack(n){
     }
 }
 app.controller('MainController', ['$scope','contacts', function ($scope,contactService) {
-    $scope.minfriends='';
+    $scope.contactPage={
+        minfriends:''
+    };
     $scope.allDisabled=true;
     $scope.cashback=0;
     $scope.friends=[];
-    $scope.contacts=[];//[{displayName:'Test',phoneNumbers:[{value:12345678}]}];
+    $scope.contacts=[];//[{displayName:'Test',phoneNumbers:[{value:12345678}]},{displayName:'Test2',phoneNumbers:[{value:123456728}]}];
     contactService.readContact(function (contacts) {
          $scope.contacts=contacts;
          $scope.$digest();
@@ -37,12 +39,18 @@ app.controller('MainController', ['$scope','contacts', function ($scope,contactS
         }
     };
     $scope.declareMinFriend=function () {
-      if(!$scope.minfriends){
+      if($scope.contactPage.minfriends){
           $scope.allDisabled=false;
-          $scope.cashback=getCashBack($scope.minfriends);
+          $scope.cashback=getCashBack($scope.contactPage.minfriends);
+          // if($scope.minfriends!=$scope.contacts.length){
+          //  //TODO   
+          // }
       }else{
           $scope.allDisabled=true;
           $scope.cashback=0;
+          $scope.contacts.forEach(function (c) {
+              c.checked=false;
+          });
       }  
     };
 }]);
