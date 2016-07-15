@@ -16,7 +16,7 @@ function getCashBack(n){
         return cashbackOptions[0];    
     }
 }
-app.controller('MainController', ['$scope','contacts', function ($scope,contactService) {
+angular.module('myApp').controller('MainController', ['$scope','contacts', function ($scope,contactService) {
     $scope.contactPage={
         minfriends:''
     };

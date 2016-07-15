@@ -1,7 +1,7 @@
 /**
  * Created by kuldeepkeshwar on 15/07/16.
  */
-app.directive('staticInclude', function($templateRequest, $compile) {
+angular.module('myApp').directive('staticInclude', function($templateRequest, $compile) {
     return {
         restrict: 'A',
         transclude: true,

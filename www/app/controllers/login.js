@@ -10,6 +10,8 @@ angular.module('myApp')
 
             },function(error){
                 console.log(error);
+
+                $state.go('home');
             });
         }
 

@@ -3,269 +3,6 @@ body{
     margin: 0;
 }
 
-*{
-    box-sizing: border-box;
-}
-
-*:focus{
-    outline: none !important;
-}
-
-body{
-    font-family: 'Noto Sans', sans-serif;
-    font-size: 16px;
-    position: relative;
-    background-image: url(../images/hero-image-min.jpg);
-    width: 100%;
-    height: 100vh;
-    overflow-x: hidden;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
-    background-attachment: fixed;
-    transition: all 0s linear;
-}
-
-body.no-bg{
-    background: none;
-    background-color: #f5f5f5;
-}
-
-p{
-    font-size: 14px;
-}
-
-a{
-    text-decoration: none;
-}
-
-#bodyOverlay {
-    position: fixed;
-    height: 100%;
-    width: 100%;
-    background-color: rgba(0, 0, 0, 0.6);
-    z-index: -1;
-    top: 0;
-}
-
-/*Pages*/
-.signin-page{
-    color: #fff;
-}
-
-.signin-page a{
-    color: #fff;
-}
-
-.logo{
-    font-size: 70px;
-    margin-bottom: 24px !important;
-}
-
-.logo a:hover{
-    text-decoration: none;
-}
-
-input.signin:focus{
-    border-bottom: 2px solid #fff;
-    outline: none;
-}
-
-/*Components*/
-.form-control{
-    background: transparent;
-    border: 1px solid transparent;
-    border-bottom: 1px solid rgba(255,255,255,0.4);
-    padding: 12px;
-    color: #fff;
-}
-
-/*Header*/
-.header{
-    padding: 18px;
-    background-color: #FF5252;
-    color: #fff;
-}
-
-/*Plan Cards*/
-.plan-cards{
-    background: #fff;
-    box-shadow: rgba(0,0,0,0.07) 0 2px 3px 0;
-    border-radius: 10px;
-    padding: 18px;
-    cursor: pointer;
-}
-
-.plan-cards:hover{
-    box-shadow: 0 1px 5px #ccc;
-}
-
-
-/*Icon with Text*/
-.texticon-group{
-    margin-bottom: 12px;
-    display: table;
-    color: #666;
-}
-
-.texticon-group:last-child{
-    margin-bottom: 0px;
-}
-
-.texticon-group__icon{
-    display: table-cell;
-    padding-right: 12px;
-    vertical-align: middle;
-    line-height: 1;
-}
-.texticon-group__icon .material-icons{
-    font-size: 40px;
-}
-
-.texticon-group__content{
-    display: table-cell;
-    vertical-align: middle;
-}
-
-
-/*Buttons*/
-.btn{
-    padding: 6px 12px;
-    display: inline-block;
-    text-transform: uppercase;
-    color: #727272;
-    font-size: 14px;
-    border: 1px solid transparent;
-}
-
-.btn-signin{
-    background-color: #fff;
-    color: #FF5252;
-}
-.btn-signin:hover{
-    background-color: #fff;
-    color: #FF5252;
-}
-
-
-.btn-primary{
-    background-color: #FF5252;
-    color: #fff;
-}
-.btn-primary:hover{
-    background-color: #FF5252;
-    color: #fff;
-    border: 1px solid #FF5252;
-}
-
-.btn-secondary{
-    border-color: #FF5252;
-    color: #FF5252;
-    background-color: transparent;
-}
-.btn-secondary:hover{
-    border-color: #FF5252;
-    color: #FF5252;
-    background-color: transparent;
-}
-
-
-/*Utilities*/
-.content{
-    margin-top: 30px;
-}
-
-.form-group{
-    margin-bottom: 24px;
-}
-
-.text-center{
-    text-align: center;
-}
-
-.text-left{
-    text-align: left;
-}
-
-.display-block{
-    display: block;
-}
-
-.display-inline-block{
-    display: inline-block;
-}
-.nb-checkbox {
-    display: inline-block;
-    position: relative;
-    transition: all 0.3s ease;
-    cursor: pointer;
-    /*margin-bottom: 5px;*/
-    margin-right: 24px;
-}
-.nb-checkbox input {
-    opacity: 0;
-    width: 0;
-    height: 0;
-    outline: 0;
-    border: none;
-    position: absolute;
-}
-.nb-checkbox__bg {
-    display: block;
-    width: 18px;
-    height: 18px;
-    border: 1px solid #757575;
-    border-radius: 2px;
-    display: inline-block;
-    margin-right: 6px;
-    vertical-align: middle;
-}
-.nb-checkbox__text {
-    vertical-align: middle;
-    padding-top: 1px;
-    font-weight: 300;
-}
-.nb-checkbox__icon {
-    position: absolute;
-    left: 2px;
-    top: 2px;
-    opacity: 0;
-    transition: all 0.3s ease;
-}
-.nb-checkbox .material-icons {
-    font-size: 14px;
-    color: #fff;
-}
-.nb-checkbox input:checked + .nb-checkbox__bg {
-    background-color: #212121;
-    border-color: transparent;
-}
-.nb-checkbox input:checked + .nb-checkbox__bg + .nb-checkbox__icon {
-    opacity: 1;
-}
-
-.checkbox-group--inline .nb-checkbox {
-    display: inline-block;
-    margin-right: 30px;
-}
-.checkbox-group--block .nb-checkbox {
-    display: block;
-    margin-bottom: 24px;
-}
-.checkbox-group--block .nb-checkbox:last-child {
-    margin-bottom: 0;
-}
-.checkbox-group-heading {
-    font-weight: 400;
-    font-size: 15px;
-    margin-bottom: 12px;
-}
-
-/*Reset*/
-body{
-    margin: 0;
-}
-
 p{
     margin: 0;
 }
@@ -285,7 +22,14 @@ h1, h2, h3, h4, h5, h6{
 body{
     font-family: 'Noto Sans', sans-serif;
     font-size: 16px;
-    position: relative;
+}
+
+body.no-bg{
+    background: none;
+    background-color: #f5f5f5;
+}
+
+.hero{
     background-image: url(../images/hero-image-min.jpg);
     width: 100%;
     height: 100vh;
@@ -295,11 +39,6 @@ body{
     background-position: center center;
     background-attachment: fixed;
     transition: all 0s linear;
-}
-
-body.no-bg{
-    background: none;
-    background-color: #f5f5f5;
 }
 
 p{
@@ -315,13 +54,15 @@ a{
     height: 100%;
     width: 100%;
     background-color: rgba(0, 0, 0, 0.6);
-    z-index: -1;
+    z-index: 1;
     top: 0;
 }
 
 /*Pages*/
 .signin-page{
     color: #fff;
+    position: relative;
+    z-index: 2;
 }
 
 .signin-page a{
@@ -607,3 +348,69 @@ input.signin:focus{
     margin-right: 6px;
 }
 
+.nb-checkbox {
+    display: inline-block;
+    position: relative;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    /*margin-bottom: 5px;*/
+    margin-right: 24px;
+}
+.nb-checkbox input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+    outline: 0;
+    border: none;
+    position: absolute;
+}
+.nb-checkbox__bg {
+    display: block;
+    width: 18px;
+    height: 18px;
+    border: 1px solid #757575;
+    border-radius: 2px;
+    display: inline-block;
+    margin-right: 6px;
+    vertical-align: middle;
+}
+.nb-checkbox__text {
+    vertical-align: middle;
+    padding-top: 1px;
+    font-weight: 300;
+}
+.nb-checkbox__icon {
+    position: absolute;
+    left: 2px;
+    top: 2px;
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+.nb-checkbox .material-icons {
+    font-size: 14px;
+    color: #fff;
+}
+.nb-checkbox input:checked + .nb-checkbox__bg {
+    background-color: #212121;
+    border-color: transparent;
+}
+.nb-checkbox input:checked + .nb-checkbox__bg + .nb-checkbox__icon {
+    opacity: 1;
+}
+
+.checkbox-group--inline .nb-checkbox {
+    display: inline-block;
+    margin-right: 30px;
+}
+.checkbox-group--block .nb-checkbox {
+    display: block;
+    margin-bottom: 24px;
+}
+.checkbox-group--block .nb-checkbox:last-child {
+    margin-bottom: 0;
+}
+.checkbox-group-heading {
+    font-weight: 400;
+    font-size: 15px;
+    margin-bottom: 12px;
+}

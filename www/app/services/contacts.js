@@ -13,7 +13,7 @@ function loadContacts(cb) {
     navigator.contacts.find(fields, cb, onError, options);
 
 }
-app.service('contacts',function () {
+angular.module('myApp').service('contacts',function () {
    this.readContact=function (cb) {
        loadContacts(cb);
    };
