@@ -1,5 +1,5 @@
 <div ng-controller="MainController">
-    <div> what's the plan</div>
-    <div static-include="app/views/what.html"></div>
-    <div static-include="app/views/with.html"></div>
+    <div static-include="app/views/what.html" ng-show="page.slides[0].active"></div>
+    <div static-include="app/views/with.html" ng-show="page.slides[1].active"></div>
+    <div static-include="app/views/deals.html" ng-show="page.slides[2].active"></div>
 </div>

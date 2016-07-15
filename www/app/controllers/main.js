@@ -16,13 +16,42 @@ function getCashBack(n){
         return cashbackOptions[0];    
     }
 }
-angular.module('myApp').controller('MainController', ['$scope','contacts', function ($scope,contactService) {
+angular.module('myApp').controller('MainController', ['$scope','contacts','$state','deals', function ($scope,contactService,$state,dealService) {
+    $scope.page={
+        slides:[{active:true},{active:false},{active:false}]
+    };
+    if($state.params.type){//0=first , 1=deal page
+        $scope.page.slides[0].active=false;
+        $scope.page.slides[2].active=true;
+    }
+
+    //deals page
+    $scope.what='booze';
+    $scope.when='morning';
+    $scope.deals=[];
+    $scope.page.next=function (index) {
+        if(index==3){
+            $state.go('as');// make call to rahul get thnx id and route to payments
+        }
+        $scope.page.slides.forEach(function (slide) {
+            slide.active=false;
+        });
+        if(index==2){
+            dealService.getDeals($scope.what,$scope.when).then(function (deals) {
+                $scope.page.slides[index].active=true;
+                $scope.deals=deals;
+            })
+        }else{
+            $scope.page.slides[index].active=true;
+        }
+    };
     $scope.contactPage={
         minfriends:''
     };
     $scope.allDisabled=true;
     $scope.cashback=0;
     $scope.friends=[];
+
     $scope.contacts=[];//[{displayName:'Test',phoneNumbers:[{value:12345678}]},{displayName:'Test2',phoneNumbers:[{value:123456728}]}];
     contactService.readContact(function (contacts) {
          $scope.contacts=contacts;
@@ -53,4 +82,5 @@ angular.module('myApp').controller('MainController', ['$scope','contacts', funct
           });
       }  
     };
+
 }]);

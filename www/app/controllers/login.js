@@ -6,12 +6,12 @@ angular.module('myApp')
 
             AuthFactory.getUser($scope.phoneNumber).then(function(resp){
                 alert('eflkerof');
-                $state.go('home');
+                $state.go('home',{type:1});
 
             },function(error){
-                console.log(error);
+                alert(error);
 
-                $state.go('home');
+                $state.go('home',{type:1});
             });
         }
 
