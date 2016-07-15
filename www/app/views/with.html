@@ -1,17 +1,13 @@
-<!--<div>WITH</div>-->
-<!--<div>-->
-    <!--<input type="text" ng-model="contactPage.minfriends" ng-keyup="declareMinFriend()"/> <div>{{cashback}}% cashback</div>-->
-    <!--<div ng-repeat="c in contacts">-->
-        <!--<div ng-click="selectFriends(c)">-->
-            <!--<input type="checkbox" ng-disabled="allDisabled" ng-checked="c.checked" >-->
-            <!--<span>{{c.displayName}}</span>-->
-            <!--<span>{{c.phoneNumbers[0].value}}</span>-->
-        <!--</div>-->
-    <!--</div>-->
-<!--</div>-->
 <div class="header">
-    <h4 class="text-left margin-bottom-xs">WITH ???</h4>
-    <h5>Family, Friends, Colleagues</h5>
+    <div class="row">
+        <div class="col-xs-9">
+            <h4 class="text-left margin-bottom-xs">WITH ???</h4>
+            <h5>Family, Friends, Colleagues</h5>
+        </div>
+        <div class="col-xs-3 text-right" ng-click="page.next(2)">
+            <a class="display-inline-block margin-top-xs"><i class="material-icons">arrow_forward</i></a>
+        </div>
+    </div>
 </div>
 <div class="container content">
     <div class="row">

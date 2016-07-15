@@ -20,7 +20,7 @@ app.config(function($stateProvider, $urlRouterProvider,pushNotificationProvider)
         .state('home', {
             url: '/home',
             controller:'MainController',
-            templateUrl: 'app/views/main.html'
+            templateUrl: 'app/views/main.html',params:{type:0}
         })
         .state('about', {
             url: '/about',

@@ -29,6 +29,10 @@ body.no-bg{
     background-color: #f5f5f5;
 }
 
+a{
+    color: #757575;
+}
+
 .hero{
     background-image: url(../images/hero-image-min.jpg);
     width: 100%;
@@ -95,6 +99,7 @@ input.signin:focus{
 
 .form-control--black{
     border-bottom: 1px solid rgba(0,0,0,0.4);
+    color: #757575;
 }
 
 .form-control--black:active{
@@ -102,11 +107,18 @@ input.signin:focus{
 }
 
 /*Header*/
-.header {
+.header{
     padding: 12px;
     background-color: #FF5252;
     color: #fff;
 }
+
+.header a{
+    color: #fff;
+    text-decoration: none;
+}
+
+/*Radio Buttons*/
 
 /*Plan Cards*/
 .plan-cards{
@@ -362,76 +374,8 @@ input.signin:focus{
     margin-right: 6px;
 }
 
-/*Checkbox*/
-.nb-checkbox {
-    display: inline-block;
-    position: relative;
-    transition: all 0.3s ease;
-    cursor: pointer;
-    /*margin-bottom: 5px;*/
-    margin-right: 24px;
-}
-.nb-checkbox input {
-    opacity: 0;
-    width: 0;
-    height: 0;
-    outline: 0;
-    border: none;
-    position: absolute;
-}
-.nb-checkbox__bg {
-    display: block;
-    width: 18px;
-    height: 18px;
-    border: 1px solid #757575;
-    border-radius: 2px;
-    display: inline-block;
-    margin-right: 6px;
-    vertical-align: middle;
-}
-.nb-checkbox__text {
-    vertical-align: middle;
-    padding-top: 1px;
-    font-weight: 300;
-}
-.nb-checkbox__icon {
-    position: absolute;
-    left: 2px;
-    top: 2px;
-    opacity: 0;
-    transition: all 0.3s ease;
-}
-.nb-checkbox .material-icons {
-    font-size: 14px;
-    color: #fff;
-}
-.nb-checkbox input:checked + .nb-checkbox__bg {
-    background-color: #212121;
-    border-color: transparent;
-}
-.nb-checkbox input:checked + .nb-checkbox__bg + .nb-checkbox__icon {
-    opacity: 1;
-}
 
-.checkbox-group--inline .nb-checkbox {
-    display: inline-block;
-    margin-right: 30px;
-}
-.checkbox-group--block .nb-checkbox {
-    display: block;
-    margin-bottom: 24px;
-}
-.checkbox-group--block .nb-checkbox:last-child {
-    margin-bottom: 0;
-}
-.checkbox-group-heading {
-    font-weight: 400;
-    font-size: 15px;
-    margin-bottom: 12px;
-}
-
-
-/* Radio Buttons*/
+/*radio Buttons*/
 .nb-radio {
     display: block;
     position: relative;
@@ -507,4 +451,150 @@ input.signin:focus{
     font-weight: 400;
     font-size: 15px;
     margin-bottom: 12px;
+}
+
+
+/*Checboxes*/
+.nb-checkbox {
+    display: inline-block;
+    position: relative;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    /*margin-bottom: 5px;*/
+    margin-right: 24px;
+}
+.nb-checkbox input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+    outline: 0;
+    border: none;
+    position: absolute;
+}
+.nb-checkbox__bg {
+    display: block;
+    width: 18px;
+    height: 18px;
+    border: 1px solid #757575;
+    border-radius: 2px;
+    display: inline-block;
+    margin-right: 6px;
+    vertical-align: middle;
+}
+.nb-checkbox__text {
+    vertical-align: middle;
+    padding-top: 1px;
+    font-weight: 300;
+}
+.nb-checkbox__icon {
+    position: absolute;
+    left: 2px;
+    top: 2px;
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+.nb-checkbox .material-icons {
+    font-size: 14px;
+    color: #fff;
+}
+.nb-checkbox input:checked + .nb-checkbox__bg {
+    background-color: #212121;
+    border-color: transparent;
+}
+.nb-checkbox input:checked + .nb-checkbox__bg + .nb-checkbox__icon {
+    opacity: 1;
+}
+
+.checkbox-group--inline .nb-checkbox {
+    display: inline-block;
+    margin-right: 30px;
+}
+.checkbox-group--block .nb-checkbox {
+    display: block;
+    margin-bottom: 24px;
+}
+.checkbox-group--block .nb-checkbox:last-child {
+    margin-bottom: 0;
+}
+.checkbox-group-heading {
+    font-weight: 400;
+    font-size: 15px;
+    margin-bottom: 12px;
+}
+
+
+/*Card*/
+.card--heading {
+    margin: 18px 0;
+}
+
+.card--inner {
+    background-color: #fff;
+    box-shadow: rgba(0, 0, 0, 0.09) 0 4px 5px 0;
+    margin-bottom: 24px;
+    transition: all .3s ease;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.card--inner a:hover{
+    text-decoration: none;
+    color: #757575;
+}
+
+.card--inner a:active{
+    text-decoration: none;
+    color: #757575;
+}
+
+.card--inner:hover {
+    box-shadow: 0 1px 5px #ccc;
+    -webkit-transform: translateY(-2px);
+    -moz-transform: translateY(-2px);
+    -ms-transform: translateY(-2px);
+    -o-transform: translateY(-2px);
+    transform: translateY(-2px);
+}
+
+.card__image {
+    position: relative;
+}
+.card__image img {
+    display: block;
+    width: 100%;
+    height: 160px;
+    background-color: #b5b6b8;
+}
+
+.card__discount {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    line-height: 1;
+    color: #fff;
+    background-color: #ef534e;
+    border-radius: 2px 0 0 0;
+    padding: 6px 8px;
+    font-size: 12px;
+}
+
+.description {
+    padding: 12px;
+}
+.description .card__location {
+    min-height: 24px;
+    height: 24px;
+    overflow: hidden;
+    font-size: 12px;
+    color: #999;
+}
+.description .card__description {
+    overflow: hidden;
+    min-height: 48px;
+    height: 48px;
+    font-size: 14px;
+}
+
+.card__footer {
+    padding: 12px;
 }
