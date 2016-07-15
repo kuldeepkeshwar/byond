@@ -16,7 +16,7 @@ function getCashBack(n){
         return cashbackOptions[0];    
     }
 }
-angular.module('myApp').controller('MainController', ['$scope','contacts', function ($scope,contactService) {
+angular.module('myApp').controller('MainController', ['$scope','$timeout','contacts', function ($scope,contactService) {
     $scope.contactPage={
         minfriends:''
     };
@@ -25,8 +25,10 @@ angular.module('myApp').controller('MainController', ['$scope','contacts', funct
     $scope.friends=[];
     $scope.contacts=[];//[{displayName:'Test',phoneNumbers:[{value:12345678}]},{displayName:'Test2',phoneNumbers:[{value:123456728}]}];
     contactService.readContact(function (contacts) {
-         $scope.contacts=contacts;
-         $scope.$digest();
+        $timeout(function () {
+            $scope.contacts=contacts;
+        },0);
+
      });
     $scope.selectFriends=function (contact) {
         if(contact.checked){
