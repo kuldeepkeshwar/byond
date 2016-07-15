@@ -45,10 +45,19 @@
             <div ng-controller="MyController">
                 Hello {{greetMe}}!
             </div>
+            <div ng-controller="ContactController">
+                <div ng-repeat="c in contacts">
+                    <div>{{c.displayName}}</div>
+                </div>
+            </div>
         </div>
     </body>
     <script type="text/javascript" src="cordova.js"></script>
-    <script type="text/javascript" src="js/angular.js"></script>
+    <script type="text/javascript" src="js/vendor/angular.js"></script>
+    <script type="text/javascript" src="js/vendor/ui.router.js"></script>
+
+
     <script type="text/javascript" src="js/app.js"></script>
+    <script type="text/javascript" src="js/contacts/contact.controller.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
 </html>
