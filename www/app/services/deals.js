@@ -16,4 +16,16 @@ angular.module('myApp').service('deals',['httpHelper'/*,'base_url'*/,function (h
         var url='http://172.16.83.130:8080/v1/byond/deals?'+params.join('&');
         return httpHelper.getCall(url);
     };
+
+
+
+    this.getDealsDataByEvent =function (eventId) {
+        var def = $q.defer();
+        var url = base_url+'/v1/byond/event/'+eventId;
+        return httpHelper.getCall(url);
+    };
+
+
+
+
 }]);
