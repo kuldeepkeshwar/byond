@@ -1,4 +1,58 @@
-<input type="text" placeholder="cardnumber" />
-<input type="text" placeholder="cvv" />
-<input type="text" placeholder="expirydate" />
-<input type="button" ng-click="payNow()" value="paynow"/>
+<div class="row">
+    <div class="col-md-6 col-md-offset-3">
+        <div class="plan-cards plan-cards--no-border">
+            <div class="form-group">
+                <div class="text-center">
+                    <img src="https://file.payumoney.com/images/payment/paymentWeb/payumoney.png" alt="payu_logo" class="img-responsive display-inline-block">
+                    <p class="margin-top-s">www.nearbuy.com</p>
+                </div>
+            </div>
+
+            <div class="price-to-pay form-group">
+                <h4 class="text-center font-weight-600">₹ 400</h4>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-12">
+                    <form action="">
+                        <h5 for="">Make Payment</h5>
+                        <hr>
+                        <div class="form-group"></div>
+                        <div class="form-group">
+                            <input type="text" class="form-control form-control--black" placeholder="Card Number">
+                        </div>
+
+                        <div class="row form-group">
+                            <div class="col-xs-6">
+                                <input type="text" class="form-control form-control--black" placeholder="Exp Month">
+                            </div>
+                            <div class="col-xs-6">
+                                <input type="text" class="form-control form-control--black" placeholder="Exp Year">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <input type="text" class="form-control form-control--black" placeholder="CVV">
+                        </div>
+
+                        <label class="nb-checkbox form-group">
+                            <input type="checkbox">
+                            <span class="nb-checkbox__bg"></span>
+							    <span class="nb-checkbox__icon">
+							    <i class="material-icons">check</i>
+							    </span>
+                            <span class="nb-checkbox__text font-size-12">Save card for faster payment and get rewarded. I accept the <a href="">T&amp;C</a></span>
+                        </label>
+
+                        <div class="text-center form-group">
+                            <button class="btn btn-primary btn-payu" ng-click="payNow()">
+                                PAY NOW
+                            </button>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
