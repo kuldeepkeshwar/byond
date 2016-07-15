@@ -1,0 +1,11 @@
+<div>WITH</div>
+<div>
+    <input type="text" ng-model="contactPage.minfriends" ng-keyup="declareMinFriend()"/> <div>{{cashback}}% cashback</div>
+    <div ng-repeat="c in contacts">
+        <div ng-click="selectFriends(c)">
+            <input type="checkbox" ng-disabled="allDisabled" ng-checked="c.checked" >
+            <span>{{c.displayName}}</span>
+            <span>{{c.phoneNumbers[0].value}}</span>
+        </div>
+    </div>
+</div>

@@ -1,7 +1,6 @@
 /**
  * Created by kuldeepkeshwar on 15/07/16.
  */
-
 function onError(contactError) {
     alert('onError!');
 };
@@ -14,11 +13,8 @@ function loadContacts(cb) {
     navigator.contacts.find(fields, cb, onError, options);
 
 }
-app.controller('ContactController', ['$scope', function ($scope) {
-    loadContacts(function (contacts) {
-        //alert('got it'+JSON.stringify(contacts));
-        $scope.contacts=contacts; //phoneNumbers[0].value
-        $scope.$digest();
-        //alert(2);
-    });
-}]);
+app.service('contacts',function () {
+   this.readContact=function (cb) {
+       loadContacts(cb);
+   };
+});

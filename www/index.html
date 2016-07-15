@@ -37,16 +37,11 @@
     </head>
     <body>
         <div class="app">
-            <h1>Apache Cordova</h1>
             <div id="deviceready" class="blink">
                 <p class="event listening">Connecting to Device</p>
                 <p class="event received">Device is Ready</p>
             </div>
-            <div ng-controller="MyController">
-                Hello {{greetMe}}!
-            </div>
             <div ui-view></div>
-           <div ng-include="'app/views/contact.html'"></div>
         </div>
     </body>
     <script type="text/javascript" src="cordova.js"></script>
@@ -55,7 +50,10 @@
 
 
     <script type="text/javascript" src="app.js"></script>
+
     <script type="text/javascript" src="app/services/push-notification.js"></script>
-    <script type="text/javascript" src="app/controllers/contact.js"></script>
+    <script type="text/javascript" src="app/controllers/main.js"></script>
+    <script type="text/javascript" src="app/services/contacts.js"></script>
+    <script type="text/javascript" src="app/directives/static-include.js"></script>
     <script type="text/javascript" src="index.js"></script>
 </html>
