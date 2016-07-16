@@ -18,6 +18,7 @@ function getCashBack(n){
 }
 angular.module('myApp').controller('MainController', ['$scope','contacts','$state','deals','WhatService', '$timeout',
     function ($scope,contactService,$state,dealService,WhatService,$timeout) {
+        $scope.dealsPage={searchkey:"",price:''};
     $scope.page={
         slides:[{active:true},{active:false},{active:false}]
     };
@@ -127,5 +128,33 @@ angular.module('myApp').controller('MainController', ['$scope','contacts','$stat
         else{
             return false;
         }
-    }
+    };
+        $scope.fetchSuggestions= function(searchkey){
+            console.log("called",searchkey.length);
+            var data =[];
+
+            if(searchkey.length>=3){
+                console.log("here");
+                dealService.getSuggestions($scope.what,$scope.when,searchkey).then(function(resp){
+                    console.log($scope.what,$scope.when,searchkey,resp);
+                    $scope.suggestions=resp;
+                },function(error){
+                });
+            }
+            else{
+                $scope.suggestions=[];
+            }
+
+        };
+        $scope.selectLocation=function(sug){
+            $scope.suggestions=[];
+            $scope.dealsPage.searchkey=sug.location;
+            dealService.getDeals($scope.what,$scope.when,$scope.dealsPage.price,sug.deals).then(function(resp){
+                $scope.deals=resp;
+            });
+            $scope.deals.forEach(function(element, index){
+                element.selected=false;
+
+            });
+        }
 }]);

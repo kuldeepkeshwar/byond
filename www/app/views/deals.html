@@ -15,14 +15,21 @@
         <div class="col-md-6 col-md-offset-3">
             <div class="plan-cards plan-cards--no-border">
                 <div class="form-group">
-                    <input type="text" class="location form-control form-control--black" placeholder="Select a place"/>
+                    <h5 class="margin-bottom-xs">Budget</h5>
+                    <input ng-model="dealsPage.price" type="text" class="form-control form-control--black" placeholder="Enter your budget">
+                </div>
+                <div class="form-group position-relative">
+                    <input ng-model="dealsPage.searchkey" class="location form-control form-control--black" placeholder ="Select a place" ng-keyup="fetchSuggestions(dealsPage.searchkey)"/>
+                    <ul ng-if="suggestions.length" class="dropdown-menu dropdown-menu-active">
+                        <li ng-repeat="sug in suggestions" ng-click="selectLocation(sug)"><a >{{sug.location}}</a></li>
+                </ul>
                 </div>
 
                 <!-- Deal Cards -->
                 <div class="row">
                     <div class="col-xs-12">
                         <div class="card--inner">
-                            <a href="#">
+                            <a href="#" class="">
                                 <div class="card__image">
                                     <img src="images/deal-card.jpg" alt="deal-image" class="img-responsive">
                                     <span class="card__discount icon-s">80% OFF</span>
@@ -49,7 +56,7 @@
                 <div class="row">
                     <div class="col-xs-12">
                         <div class="card--inner">
-                            <a href="#">
+                            <a href="#" class="">
                                 <div class="card__image">
                                     <img src="images/deal-card.jpg" alt="deal-image" class="img-responsive">
                                     <span class="card__discount icon-s">80% OFF</span>
