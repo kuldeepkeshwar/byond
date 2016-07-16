@@ -33,6 +33,11 @@ a{
     color: #757575;
 }
 
+.social-logo{
+    width: 100%;
+    padding: 50px;
+}
+
 .hero{
     background-image: url(../images/hero-image-min.jpg);
     width: 100%;
