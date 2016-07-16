@@ -44,7 +44,7 @@ angular.module('myApp').controller('MainController', ['$scope','contacts','$stat
         if(index==3){
 
             var _data={
-                budget:$scope.budget||1000,
+                budget:$scope.dealsPage.price||1000,
                 what:$scope.what,
                 when:$scope.when,
                 cusotmerId:$rootScope.customerId,
@@ -56,7 +56,7 @@ angular.module('myApp').controller('MainController', ['$scope','contacts','$stat
                 with:$scope.friends.map(function (f) {
                     return {name:f.displayName,phoneNumber:f.phoneNumbers[0].value}
                 })
-            }
+            };
             dealService.createEvent(_data).then(function (data) {
                 $state.go('payment',{txnId:data.payload.txnid,amount:data.payload.amount});// route to payments
             });
@@ -91,7 +91,7 @@ angular.module('myApp').controller('MainController', ['$scope','contacts','$stat
         $timeout(function () {
             contacts.forEach(function (c) {
                 c.checked=false;
-            })
+            });
             $scope.contacts=contacts;
         },0);
      });
@@ -133,6 +133,7 @@ angular.module('myApp').controller('MainController', ['$scope','contacts','$stat
                 $scope.friends.splice(index,1);
             }
         }
+        $scope.cashback=getCashBack($scope.friends.length);
     };
     $scope.declareMinFriend=function () {
       if($scope.contactPage.minfriends){
