@@ -22,7 +22,7 @@
                 <div class="row" ng-repeat="deal in deals">
                     <div class="col-xs-12">
                         <div class="card--inner">
-                            <a ng-click="selectDeal(deal)">
+                            <a ng-click="selectDeal(deal)" ng-class="{'deal-selected':deal.selected}">
                                 <div class="card__image">
                                     <img src="{{deal.imageUrl}}" alt="deal-image" class="img-responsive">
                                     <span class="card__discount icon-s">{{deal.discount}}% OFF</span>

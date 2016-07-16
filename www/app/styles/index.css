@@ -598,3 +598,6 @@ input.signin:focus{
 .card__footer {
     padding: 12px;
 }
+.deal-selected .description{
+    border-left: 2px solid #2dbaaa;
+}
