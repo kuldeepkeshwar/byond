@@ -6,7 +6,7 @@ var cashbackOptions={
     2:5,
     3:8,
     4:10,5:12,6:15,7:20
-}
+};
 function getCashBack(n){
     if(n>=2 && n<=7 ){
         return cashbackOptions[n];
@@ -18,6 +18,8 @@ function getCashBack(n){
 }
 angular.module('myApp').controller('MainController', ['$scope','contacts','$state','deals','WhatService', '$timeout','$rootScope',
     function ($scope,contactService,$state,dealService,WhatService,$timeout,$rootScope) {
+        $scope.dealsPage={searchkey:"",price:''};
+
     $scope.page={
         slides:[{active:true},{active:false},{active:false}]
     };
@@ -42,7 +44,7 @@ angular.module('myApp').controller('MainController', ['$scope','contacts','$stat
         if(index==3){
 
             var _data={
-                budget:$scope.budget||1000,
+                budget:$scope.dealsPage.price||1000,
                 what:$scope.what,
                 when:$scope.when,
                 cusotmerId:$rootScope.customerId,
@@ -54,7 +56,7 @@ angular.module('myApp').controller('MainController', ['$scope','contacts','$stat
                 with:$scope.friends.map(function (f) {
                     return {name:f.displayName,phoneNumber:f.phoneNumbers[0].value}
                 })
-            }
+            };
             dealService.createEvent(_data).then(function (data) {
                 $state.go('payment',{txnId:data.payload.txnid,amount:data.payload.amount});// route to payments
             });
@@ -89,7 +91,7 @@ angular.module('myApp').controller('MainController', ['$scope','contacts','$stat
         $timeout(function () {
             contacts.forEach(function (c) {
                 c.checked=false;
-            })
+            });
             $scope.contacts=contacts;
         },0);
      });
@@ -131,6 +133,7 @@ angular.module('myApp').controller('MainController', ['$scope','contacts','$stat
                 $scope.friends.splice(index,1);
             }
         }
+        $scope.cashback=getCashBack($scope.friends.length);
     };
     $scope.declareMinFriend=function () {
       if($scope.contactPage.minfriends){
@@ -160,6 +163,35 @@ angular.module('myApp').controller('MainController', ['$scope','contacts','$stat
             return false;
         }
     };
+        $scope.fetchSuggestions= function(searchkey){
+            console.log("called",searchkey.length);
+            var data =[];
+
+            if(searchkey.length>=3){
+                console.log("here");
+                dealService.getSuggestions($scope.what,$scope.when,searchkey).then(function(resp){
+                    console.log($scope.what,$scope.when,searchkey,resp);
+                    $scope.suggestions=resp;
+                },function(error){
+                });
+            }
+            else{
+                $scope.suggestions=[];
+            }
+
+        };
+        $scope.selectLocation=function(sug){
+            $scope.suggestions=[];
+            $scope.dealsPage.searchkey=sug.location;
+            dealService.getDeals($scope.what,$scope.when,$scope.dealsPage.price,sug.deals).then(function(resp){
+                $scope.deals=resp;
+            });
+            $scope.deals.forEach(function(element, index){
+                element.selected=false;
+
+            });
+        };
+
     $scope.selectDeal=function (deal) {
         deal.selected=true;
     }

@@ -328,7 +328,7 @@ input.signin:focus{
 }
 
 .margin-top-s{
-    margin-bottom: 12px;
+    margin-top: 12px;
 }
 
 .margin-bottom-18{
@@ -368,11 +368,16 @@ input.signin:focus{
 
 .checkmark {
     position: relative;
+    border-color: #FF5252;
+    color: #FF5252;
+    margin-right: 6px;
 }
 .checkmark:before {
     content:  "\2713 ";
     margin-right: 6px;
+    color: #FF5252;
 }
+
 
 
 /*radio Buttons*/
@@ -597,6 +602,99 @@ input.signin:focus{
 
 .card__footer {
     padding: 12px;
+}
+
+/*accordion*/
+.panel-group {
+    border-bottom: none;
+    margin-bottom: 0; }
+.panel-group .panel {
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    box-shadow: none; }
+
+.panel-group .panel-heading + .panel-collapse > .panel-body {
+    border-top: none; }
+
+.panel-default > .panel-heading {
+    color: #212121;
+    background-color: transparent;
+    padding: 0; }
+
+.panel-body {
+    padding: 0px 24px 24px; }
+
+.panel-title > a {
+    text-decoration: none;
+    padding: 24px 24px;
+    display: block;
+    position: relative; }
+
+.panel-icons {
+    position: absolute;
+    right: 24px;
+    top: 50%;
+    margin-top: -10px; }
+
+.panel-icons .panel-open {
+    display: none; }
+
+.collapsed .panel-open {
+    display: block; }
+.collapsed .panel-close {
+    display: none; }
+
+
+hr{
+    margin: 12px 0;
+}
+
+.form-control:focus{
+    box-shadow: none;
+    border: none;
+    border-bottom: 2px solid #757575;
+}
+
+.btn-payu{
+    background-color: #85B210;
+}
+.btn-payu:hover{
+    background-color: #85B210;
+    border-color: #85B210;;
+}
+.font-size-40{
+    font-size: 40px;
+}
+.position-relative{
+    position: relative;
+}
+
+.deal-selected .description{
+    border-left: 2px solid #2dbaaa;
+}
+
+.dropdown-menu{
+    border-color: transparent;
+    box-shadow: 0 1px 3px #c7c7c7;
+    border-radius: 0;
+    min-width: 165px;
+}
+.dropdown-menu > li > a {
+    padding: 6px 15px;
+    white-space: normal;
+}
+.dropdown-menu > li > a {
+    display: block;
+    padding: 3px 20px;
+    clear: both;
+    font-weight: normal;
+    line-height: 1.38462;
+    color: #757575;
+    white-space: nowrap;
+}
+.dropdown-menu-active{
+    display: block;
 }
 .deal-selected .description{
     border-left: 2px solid #2dbaaa;
