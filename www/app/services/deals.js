@@ -26,4 +26,11 @@ angular.module('myApp').service('deals',['httpHelper','$q'/*,'base_url'*/,functi
         });
         return def.promise;
     };
+
+    this.getDealsDataByEvent =function (eventId) {
+        var def = $q.defer();
+        var url = base_url+'/v1/byond/event/'+eventId;
+        return httpHelper.getCall(url);
+    };
+
 }]);

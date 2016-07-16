@@ -26,6 +26,16 @@ angular.module('myApp').controller('MainController', ['$scope','contacts','$stat
         $scope.page.slides[2].active=true;
     }
 
+
+    if($scope.params.eventId){
+        deals.getDealsDataByEvent($scope.params.eventId).then(function (response) {
+            $scope.deals = response.deals;
+            $scope.deals.forEach(function(deal) {
+                deal.selected = true;
+            });
+        });
+    }
+
     //deals page
     $scope.deals=[];
     $scope.page.next=function (index) {
