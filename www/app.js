@@ -20,7 +20,8 @@ app.config(function($stateProvider, $urlRouterProvider,pushNotificationProvider)
         .state('home', {
             url: '/home',
             controller:'MainController',
-            templateUrl: 'app/views/main.html',params:{type:0}
+            templateUrl: 'app/views/main.html',
+            params:{type:0,eventId:null}
         })
         .state('about', {
             url: '/about',
@@ -35,7 +36,7 @@ app.config(function($stateProvider, $urlRouterProvider,pushNotificationProvider)
             url: '/payment',
             templateUrl: 'app/views/payment.html',
             controller:'paymentCtrl',
-            params:{txnId:1}
+            params:{txnId:1,amount:null}
         })
         .state('thankU',{
             url: '/thankU',
@@ -48,7 +49,7 @@ app.config(function($stateProvider, $urlRouterProvider,pushNotificationProvider)
 app.run(
     function ($state,pushNotification) {
         pushNotification.getPushNotification(function (data) {
-            $state.go('home',{type:1})
+            $state.go('home',{eventId:data.additionalData.eventId})
         })
     });
 

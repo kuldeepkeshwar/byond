@@ -11,7 +11,6 @@ angular.module('myApp')
     .service('httpHelper', function ($http,$log,$q) {
         var service={};
         service._$http=function (config, sbCb) {
-            console.log(config.data);
             $http[config.method](config.url, config.data).success(function (resp) {
                 sbCb(resp);
             }).error(function (error) {

@@ -5,8 +5,9 @@
 
 angular.module('myApp')
     .controller('paymentCtrl', ['$scope','$state', function ($scope,$state) {
-alert($state.params.txnId);
+    //alert($state.params.txnId);
+        $scope.amount=$state.params.amount;
         $scope.payNow = function () {
               $state.go('thankU',{'txnId':$state.params.txnId});
-        }
+        };
     }]);

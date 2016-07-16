@@ -696,4 +696,6 @@ hr{
 .dropdown-menu-active{
     display: block;
 }
-
+.deal-selected .description{
+    border-left: 2px solid #2dbaaa;
+}

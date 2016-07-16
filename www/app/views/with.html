@@ -26,9 +26,9 @@
 
                 <h4 class="margin-bottom-18">Contacts</h4>
                 <ul class="list-block contact">
-                    <li class="padding-bottom-xs margin-bottom-xs" ng-repeat="c in contacts" ng-click="selectFriends(c)">
+                    <li class="padding-bottom-xs margin-bottom-xs" ng-repeat="c in contacts" >
                         <label class="nb-checkbox margin-bottom-zero">
-                            <input type="checkbox" ng-disabled="allDisabled" ng-checked="c.checked" >
+                            <input type="checkbox" ng-disabled="allDisabled" ng-checked="c.checked" ng-click="selectFriends(c)">
                             <span class="nb-checkbox__bg"></span>
 						    <span class="nb-checkbox__icon">
 						    <i class="material-icons">check</i>

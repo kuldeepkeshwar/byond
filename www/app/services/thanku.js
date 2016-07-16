@@ -8,13 +8,11 @@ angular.module('myApp').service('thankU',['$q','httpHelper',function ($q,httpHel
     function getDetailsByTxnId(txnId) {
         var def = $q.defer();
         var data={'txnId':txnId};
-        var url = 'http://172.16.80.177:8080/v1/customer?phoneNumber=';
+        var url = 'http://172.16.83.130:8080/v1/byond/payment/update';
         httpHelper._$http({
-            method:'post',
-            url:url,
-            data:data
-        }, function (response) {
-            def.resolve(response.data);
+            method: 'post', url: url, def: def, data: data,
+        }, function (resp) {
+            def.resolve(resp);
         });
         return def.promise;
     }
