@@ -16,8 +16,8 @@ function getCashBack(n){
         return cashbackOptions[0];
     }
 }
-angular.module('myApp').controller('MainController', ['$scope','contacts','$state','deals','WhatService', '$timeout',
-    function ($scope,contactService,$state,dealService,WhatService,$timeout) {
+angular.module('myApp').controller('MainController', ['$scope','contacts','$state','deals','WhatService', '$timeout','$rootScope',
+    function ($scope,contactService,$state,dealService,WhatService,$timeout,$rootScope) {
     $scope.page={
         slides:[{active:true},{active:false},{active:false}]
     };
@@ -30,7 +30,25 @@ angular.module('myApp').controller('MainController', ['$scope','contacts','$stat
     $scope.deals=[];
     $scope.page.next=function (index) {
         if(index==3){
-            $state.go('as');// make call to rahul get thnx id and route to payments
+
+            var _data={
+                budget:$scope.budget||1000,
+                what:$scope.what,
+                when:$scope.when,
+                cusotmerId:$rootScope.customerId,
+                customerName:$rootScope.customerName,
+                customerPhone:$rootScope.phoneNumber,
+                dealsVos:$scope.deals.filter(function (deal) {
+                    return deal.selected;
+                }),
+                with:$scope.friends.map(function (f) {
+                    return {name:f.displayName,phoneNumber:f.phoneNumbers[0].value}
+                })
+            }
+            dealService.createEvent(_data).then(function (data) {
+                $state.go('as');// route to payments
+            });
+
         }
         $scope.page.slides.forEach(function (slide) {
             slide.active=false;
@@ -51,7 +69,7 @@ angular.module('myApp').controller('MainController', ['$scope','contacts','$stat
     $scope.cashback=0;
     $scope.friends=[];
 
-    $scope.contacts=[{displayName:'Test',phoneNumbers:[{value:12345678}]},{displayName:'Test2',phoneNumbers:[{value:123456728}]}];
+    $scope.contacts=[{checked:false,displayName:'Test',phoneNumbers:[{value:12345678}]},{checked:false,displayName:'Test2',phoneNumbers:[{value:123456728}]}];
 
     $scope.whatData=[];
     $scope.selectedIndex='';
@@ -59,6 +77,9 @@ angular.module('myApp').controller('MainController', ['$scope','contacts','$stat
     $scope.when='';
     // contactService.readContact(function (contacts) {
     //     $timeout(function () {
+    //         contacts.forEach(function (c) {
+    //             c.checked=false;
+    //         })
     //         $scope.contacts=contacts;
     //     },0);
     //  });
@@ -91,6 +112,7 @@ angular.module('myApp').controller('MainController', ['$scope','contacts','$stat
         $scope.when=moment;
     };
     $scope.selectFriends=function (contact) {
+        contact.checked=!contact.checked;
         if(contact.checked){
             $scope.friends.push(contact);
         }else{
@@ -127,5 +149,8 @@ angular.module('myApp').controller('MainController', ['$scope','contacts','$stat
         else{
             return false;
         }
+    };
+    $scope.selectDeal=function (deal) {
+        deal.selected=true;
     }
 }]);

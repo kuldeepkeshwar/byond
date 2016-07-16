@@ -7,6 +7,7 @@ angular.module('myApp')
 
                 $rootScope.customerId=resp.customerId;
                 $rootScope.customerName=resp.name;
+                $rootScope.phoneNumber=$scope.phoneNumber;
                 $state.go('home',{type:0});
 
             },function(error){

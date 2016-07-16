@@ -19,59 +19,33 @@
                 </div>
 
                 <!-- Deal Cards -->
-                <div class="row">
+                <div class="row" ng-repeat="deal in deals">
                     <div class="col-xs-12">
                         <div class="card--inner">
-                            <a href="#">
+                            <a ng-click="selectDeal(deal)">
                                 <div class="card__image">
-                                    <img src="images/deal-card.jpg" alt="deal-image" class="img-responsive">
-                                    <span class="card__discount icon-s">80% OFF</span>
+                                    <img src="{{deal.imageUrl}}" alt="deal-image" class="img-responsive">
+                                    <span class="card__discount icon-s">{{deal.discount}}% OFF</span>
                                 </div>
 
                                 <div class="description">
                                     <div class="row">
                                         <div class="col-xs-7">
-                                            <h5 class="card__title margin-bottom-xs">Smaaash </h5>
-                                            <p class="card__location">DLF City Phase 2</p>
+                                            <h5 class="card__title margin-bottom-xs" ng-bind="deal.merchantTitle">Smaaash </h5>
+                                            <p class="card__location" ng-bind="deal.location">DLF City Phase 2</p>
                                         </div>
                                         <div class="col-xs-5 text-right">
-                                            <h4 class="txt-right txt-brand-secondary font-weight-600">₹ 400</h4>
+                                            <h4 class="txt-right txt-brand-secondary font-weight-600">₹ {{deal.price}}</h4>
                                         </div>
                                     </div>
-
-                                    <p class="card__description margin-bottom-xs margin-top-xs">Lunch &amp; Dinner Buffets, Arcade Games</p>
+                                    <p class="card__description margin-bottom-xs margin-top-xs" ng-bind="deal.title"></p>
                                 </div>
                             </a>
                         </div>
                     </div>
                 </div>
 
-                <div class="row">
-                    <div class="col-xs-12">
-                        <div class="card--inner">
-                            <a href="#">
-                                <div class="card__image">
-                                    <img src="images/deal-card.jpg" alt="deal-image" class="img-responsive">
-                                    <span class="card__discount icon-s">80% OFF</span>
-                                </div>
 
-                                <div class="description">
-                                    <div class="row">
-                                        <div class="col-xs-7">
-                                            <h5 class="card__title margin-bottom-xs">Smaaash </h5>
-                                            <p class="card__location">DLF City Phase 2</p>
-                                        </div>
-                                        <div class="col-xs-5 text-right">
-                                            <h4 class="txt-right txt-brand-secondary font-weight-600">₹ 400</h4>
-                                        </div>
-                                    </div>
-
-                                    <p class="card__description margin-bottom-xs margin-top-xs">Lunch &amp; Dinner Buffets, Arcade Games</p>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
