@@ -27,8 +27,8 @@ angular.module('myApp').controller('MainController', ['$scope','contacts','$stat
     }
 
 
-    if($scope.params.eventId){
-        deals.getDealsDataByEvent($scope.params.eventId).then(function (response) {
+    if($state.params.eventId){
+        deals.getDealsDataByEvent($state.params.eventId).then(function (response) {
             $scope.deals = response.deals;
             $scope.deals.forEach(function(deal) {
                 deal.selected = true;
@@ -56,7 +56,7 @@ angular.module('myApp').controller('MainController', ['$scope','contacts','$stat
                 })
             }
             dealService.createEvent(_data).then(function (data) {
-                $state.go('as');// route to payments
+                $state.go('payment',{txnId:data.payload.txnid,amount:data.payload.amount});// route to payments
             });
 
         }
@@ -68,7 +68,7 @@ angular.module('myApp').controller('MainController', ['$scope','contacts','$stat
                 $scope.page.slides[index].active=true;
                 $scope.deals=deals;
             })
-        }else{
+        }else if($scope.page.slides[index]){
             $scope.page.slides[index].active=true;
         }
     };
@@ -79,20 +79,20 @@ angular.module('myApp').controller('MainController', ['$scope','contacts','$stat
     $scope.cashback=0;
     $scope.friends=[];
 
-    $scope.contacts=[{checked:false,displayName:'Test',phoneNumbers:[{value:12345678}]},{checked:false,displayName:'Test2',phoneNumbers:[{value:123456728}]}];
+    $scope.contacts=[];//[{checked:false,displayName:'Test',phoneNumbers:[{value:12345678}]},{checked:false,displayName:'Test2',phoneNumbers:[{value:123456728}]}];
 
     $scope.whatData=[];
     $scope.selectedIndex='';
     $scope.what='';
     $scope.when='';
-    // contactService.readContact(function (contacts) {
-    //     $timeout(function () {
-    //         contacts.forEach(function (c) {
-    //             c.checked=false;
-    //         })
-    //         $scope.contacts=contacts;
-    //     },0);
-    //  });
+    contactService.readContact(function (contacts) {
+        $timeout(function () {
+            contacts.forEach(function (c) {
+                c.checked=false;
+            })
+            $scope.contacts=contacts;
+        },0);
+     });
     (function getWhatData(){
        WhatService.getWhatAndWhen().then(function(resp){
            $scope.whatData=resp;

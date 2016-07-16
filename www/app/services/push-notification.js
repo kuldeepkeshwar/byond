@@ -11,15 +11,15 @@ app.provider('pushNotification', function pushNotificationProvider() {
 
     this.setPushNotificationConfig = function(config) {
         pushNotificationConfig = config;
-
+        
         push = PushNotification.init(config);
-
+        
         PushNotification.hasPermission(function(data) {
             if (data.isEnabled) {
                 console.log('isEnabled');
             }
         });
-
+        
         push.on('registration', function(data) {
             console.log(data.registrationId);
         });
